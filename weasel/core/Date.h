@@ -7,8 +7,8 @@ Author: Chongliu Jia
 #ifndef WEASEL_CORE_DATE_H
 #define WEASEL_CORE_DATE_H
 
-#include "weasel/core/Copyable.h"
-#include "weasel/core/Types.h"
+#include "Copyable.h"
+#include "Types.h"
 
 struct tm; // see "explicit Date(const struct tm&)"
 
@@ -17,7 +17,7 @@ namespace weasel
 	class Date : public weasel::copyable
 	{
 		public:
-			struct MonthDayYear 
+			struct YearMonthDay 
 			{
 				int month; //month[1-12]
 				int day;   //day[1-31]
@@ -31,9 +31,9 @@ namespace weasel
 			}
 
 			// month, day, year ==> mm-dd-yyyy
-			Date(int month, int day, int year);
+			Date(int year, int month, int day);
 
-			explicit Date(int DayNumber) : DayNumber(DayNumber_)
+			explicit Date(int DayNumber) : DayNumber_(DayNumber)
 			{
 			}
 
@@ -55,21 +55,21 @@ namespace weasel
 
 			string toIsoString() const;
 
-			struct MonthDayYear monthDayYear() const;
+			struct YearMonthDay yearMonthDay() const;
 
 			int month() const
 			{
-				return monthDayYear().month;
+				return yearMonthDay().month;
 			}
 
 			int day() const
 			{
-				return monthDayYear().day;
+				return yearMonthDay().day;
 			}
 
 			int year() const
 			{
-				return monthDayYear().year;
+				return yearMonthDay().year;
 			}
 
 			int WeekDay() const 
