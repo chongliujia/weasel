@@ -9,7 +9,7 @@ bool weasel::Condition::waitForSeconds(double seconds)
 
 	clock_gettime(CLOCK_REALTIME, &abstime);
 
-	const int64_t kNanoSecondsPerSecond = 1000000000;
+	const int64_t kNanoSecondsPerSeconds = 1000000000;
 	int64_t nanoseconds = static_cast<int64_t>(seconds * kNanoSecondsPerSeconds);
 
 	abstime.tv_sec  += static_cast<time_t>((abstime.tv_nsec + nanoseconds) / kNanoSecondsPerSeconds);

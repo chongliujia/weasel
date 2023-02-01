@@ -41,7 +41,7 @@ namespace weasel
 							*plus = '\0';
 
 							int status = 0;
-							char* ret = abi::__cax_demangle(left_par+1, demangled, &len, &status);
+							char* ret = abi::__cxa_demangle(left_par+1, demangled, &len, &status);
 							
 							*plus = '+';
 

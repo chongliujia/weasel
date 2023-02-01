@@ -30,7 +30,7 @@ namespace weasel
 
 		void cacheTid();
 
-		inline in tid() 
+		inline int tid() 
 		{
 			/*
 

@@ -21,7 +21,7 @@ class Foo
 			printf("tid=%d, Foo::x_=%f\n", weasel::CurrentThread::tid(), x_);
 		}
 
-		void memeberFunc2(const std::string& text)
+		void memberFunc2(const std::string& text)
 		{
 			printf("tid=%d, Foo::x_=%f, text=%s\n", weasel::CurrentThread::tid(), x_, text.c_str());
 		}
@@ -74,11 +74,11 @@ int main()
 	t2.join();
 
 	Foo foo(100);
-	weasel::Thread t3(std::bind(&Foo::memeberFunc, &foo), "Thread for member function without argument");
+	weasel::Thread t3(std::bind(&Foo::memberFunc, &foo), "Thread for member function without argument");
 	t3.start();
 	t3.join();
 
-	weasel::Thread t4(std::bind(&Foo::memeberFunc2, std::ref(foo), std::string("jcl")));
+	weasel::Thread t4(std::bind(&Foo::memberFunc2, std::ref(foo), std::string("jcl")));
 	t4.start();
 	t4.join();
 

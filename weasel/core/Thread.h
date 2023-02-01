@@ -35,6 +35,11 @@ namespace weasel
 
 			const string& name() const 
 			{
+				return name_;
+			}
+
+			static int numCreated()
+			{
 				return numCreated_.get();
 			}
 

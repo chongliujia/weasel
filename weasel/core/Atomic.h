@@ -3,6 +3,8 @@
 
 #include "Noncopyable.h"
 
+#include <cstdint>
+
 namespace weasel
 {
 	namespace detail

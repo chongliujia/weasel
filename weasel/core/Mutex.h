@@ -5,7 +5,7 @@
 #include "Noncopyable.h"
 
 #include <assert.h>
-#include <phread.h>
+#include <pthread.h>
 
 
 #if defined(__clang__) && (!defined(SWIG))
@@ -83,12 +83,12 @@ extern void __assert_perror_fail(int errnum,
 __END_DECLS
 #endif
 
-#define MCHECK(ret) ({ __typedef__ (ret) errnum = (ret);	\
+#define MCHECK(ret) ({ __typeof__ (ret) errnum = (ret);	\
 					   if (__builtin_expect(errnum != 0, 0)) \
 					   	 __assert_perror_fail (errnum, __FILE__, __LINE__, __func__); })
 #else
 
-#define MCHECK(ret) ({ __typedef__ (ret) errnum = (ret);	\
+#define MCHECK(ret) ({ __typeof__ (ret) errnum = (ret);	\
 					   assert(errnum == 0); (void) errnum; })
 
 #endif
