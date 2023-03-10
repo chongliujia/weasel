@@ -8,5 +8,4 @@ namespace weasel
 {
 	class Timestamp : public weasel::copyable,
 					  public std::equailty_comparable<Timestamp>,
-					  public std::
 }
