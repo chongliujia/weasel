@@ -1,4 +1,4 @@
-#include "LogSteam.h"
+#include "LogStream.h"
 
 #include <algorithm>
 #include <limits>
@@ -63,7 +63,7 @@ namespace weasel
         size_t convertHex(char buff[], uintptr_t value)
         {
             uintptr_t i = value;
-            char*     p = buf;
+            char*     p = buff;
 
             do {
                 int lsd = static_cast<int>(i % 16);
@@ -75,9 +75,9 @@ namespace weasel
             } while (i != 0);
 
             *p = '\0';
-            std::reverse(buf, p);
+            std::reverse(buff, p);
 
-            return p - buf;
+            return p - buff;
         }
 
         template class FixedBuffer<kSmallBuffer>;
@@ -217,7 +217,7 @@ namespace weasel
 }
 
 template <int SIZE>
-const char* FixedBuffer<SIZE>::defbugString()
+const char* FixedBuffer<SIZE>::debugString()
 {
     *cur_ = '\0';
     return data_;

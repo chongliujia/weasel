@@ -54,7 +54,7 @@ namespace weasel
                 void bzero() { memZero(data_, sizeof(data_)); }
 
                 // for used by GDB
-                char char* debugString();
+                const char* debugString();
                 void setCookie(void (*cookie)()) { cookie_ = cookie; }
 
                 // for used by unit test
@@ -64,6 +64,7 @@ namespace weasel
             private:
                 char data_[SIZE];
                 char *cur_;
+                void (*cookie_)();
 
                 static void cookieStart();
                 static void cookieEnd();
@@ -129,7 +130,7 @@ namespace weasel
 
             self& operator<<(const unsigned char* str)
             {
-                return operator<<(reintepret_cast<const char*>(str));
+                return operator<<(reinterpret_cast<const char*>(str));
             }
 
             self& operator<<(const string& v)

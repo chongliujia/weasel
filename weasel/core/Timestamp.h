@@ -10,8 +10,8 @@
 namespace weasel
 {
 	class Timestamp : public weasel::copyable,
-					  public boost::equailty_comparable<Timestamp>,
-                      public boost::less_than_comparable<Timestemp>
+					  public boost::equality_comparable<Timestamp>,
+                      public boost::less_than_comparable<Timestamp>
     {
         public:
             static const int kMicroSecondsPerSecond = 1000 * 1000;
@@ -77,7 +77,7 @@ namespace weasel
     inline double timeDifference(Timestamp high, Timestamp low)
     {
         int64_t diff = high.microSecondsSinceEpoch() - low.microSecondsSinceEpoch();
-        return static_cast<double>(diff) / Timestamp::kMircoSecondsPerSecond;
+        return static_cast<double>(diff) / Timestamp::kMicroSecondsPerSecond;
     }
 
     inline Timestamp addTime(Timestamp timestamp, double seconds)
