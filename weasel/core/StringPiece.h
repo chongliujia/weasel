@@ -99,6 +99,7 @@ namespace weasel
             }
 
 #define STRINGPIECE_BINARY_PREDICATE(cmp, auxcmp)
+            /*
             bool operator cmp (const StringPiece& x) const 
             {
                 int r = memcmp(ptr_, x.ptr_, length_ < x.length_ ? length_ : x.length_);
@@ -109,6 +110,7 @@ namespace weasel
             STRINGPIECE_BINARY_PREDICATE(<=, <);
             STRINGPIECE_BINARY_PREDICATE(>=, >);
             STRINGPIECE_BINARY_PREDICATE(>,  >);
+            */
 #undef  STRINGPIECE_BINARY_PREDICATE
 
             int compare(const StringPiece& x) const 

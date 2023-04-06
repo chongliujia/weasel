@@ -32,7 +32,7 @@ string Timestamp::toString() const
     return buf;
 }
 
-string Timestamp::toFromattedString(bool showMicroSeconds) const 
+string Timestamp::toFormattedString(bool showMicroSeconds) const 
 {
     char buf[64] = {0};
 
@@ -43,7 +43,7 @@ string Timestamp::toFromattedString(bool showMicroSeconds) const
 
     if (showMicroSeconds)
     {
-        int microsceonds = static_cast<int>(microSecondsSinceEpoch_ % kMicroSecondsPerSecond);
+        int microseconds = static_cast<int>(microSecondsSinceEpoch_ % kMicroSecondsPerSecond);
 
         snprintf(buf, sizeof(buf), "%4d%02d%02d %02d:%02d:%02d.%06d",
                  tm_time.tm_year + 1900, tm_time.tm_mon + 1, tm_time.tm_mday,
